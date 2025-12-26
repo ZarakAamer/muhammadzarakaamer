@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Muhammad Zarak Aamer</title>
+  <meta name="description" content="Selected projects by Muhammad Zarak Aamer." />
+  <link rel="canonical" href="https://muhammadzarakaamer.com/projects.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects — Muhammad Zarak Aamer" />
+  <meta property="og:description" content="Selected projects." />
+  <meta property="og:url" content="https://muhammadzarakaamer.com/projects.html" />
+
+  <meta name="robots" content="index,follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>html{scroll-behavior:smooth}</style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Projects — Muhammad Zarak Aamer",
+    "url":"https://muhammadzarakaamer.com/projects.html"
+  }
+  </script>
+</head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <header class="border-b border-slate-200/70 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 py-6 flex items-center justify-between">
+      <div>
+        <p class="text-sm uppercase tracking-widest text-slate-500">Projects</p>
+        <h1 class="text-xl font-semibold"><a class="hover:underline" href="/">Muhammad Zarak Aamer</a></h1>
+      </div>
+      <nav aria-label="Primary" class="flex gap-4 text-sm">
+        <a class="hover:underline" href="/about.html">About</a>
+        <a class="hover:underline" href="/projects.html" aria-current="page">Projects</a>
+        <a class="hover:underline" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-12">
+    <section>
+      <h2 class="text-2xl font-bold tracking-tight">Selected work</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">A small set of projects with quick context. Update <code>data/projects.json</code> to edit.</p>
+
+      <div id="projects" class="mt-8 grid gap-4 sm:grid-cols-2"></div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200/70 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-slate-600 dark:text-slate-300 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span id="y"></span> Muhammad Zarak Aamer</p>
+      <p><a class="hover:underline" href="/sitemap.xml">Sitemap</a> · <a class="hover:underline" href="/robots.txt">Robots</a></p>
+    </div>
+  </footer>
+
+  <template id="card">
+    <article class="rounded-xl border border-slate-200 p-5 dark:border-slate-800">
+      <div class="flex items-start justify-between gap-4">
+        <h3 class="font-semibold text-lg"></h3>
+        <span class="text-xs rounded-full border border-slate-200 px-2 py-1 text-slate-600 dark:border-slate-700 dark:text-slate-300"></span>
+      </div>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs"></div>
+      <div class="mt-5 flex gap-3 text-sm">
+        <a class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 font-medium text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" data-live target="_blank" rel="noopener">Live</a>
+        <a class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2 font-medium hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-900" data-code target="_blank" rel="noopener">Code</a>
+      </div>
+    </article>
+  </template>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    async function loadProjects() {
+      try {
+        const res = await fetch('/data/projects.json', { cache: 'no-store' });
+        const data = await res.json();
+        const container = document.getElementById('projects');
+        const tpl = document.getElementById('card');
+
+        data.projects.forEach(p => {
+          const node = tpl.content.cloneNode(true);
+          node.querySelector('h3').textContent = p.name;
+          node.querySelector('span').textContent = p.status || 'Project';
+          node.querySelector('p').textContent = p.description;
+
+          const tagsWrap = node.querySelector('div.mt-4');
+          (p.tags || []).forEach(t => {
+            const tag = document.createElement('span');
+            tag.className = 'rounded-full border border-slate-200 px-2 py-1 text-slate-600 dark:border-slate-700 dark:text-slate-300';
+            tag.textContent = t;
+            tagsWrap.appendChild(tag);
+          });
+
+          const live = node.querySelector('[data-live]');
+          const code = node.querySelector('[data-code]');
+          if (p.liveUrl) live.href = p.liveUrl; else live.classList.add('hidden');
+          if (p.codeUrl) code.href = p.codeUrl; else code.classList.add('hidden');
+
+          container.appendChild(node);
+        });
+      } catch (e) {
+        const container = document.getElementById('projects');
+        container.innerHTML = '<p class="text-sm text-slate-600 dark:text-slate-300">Projects could not be loaded.</p>';
+      }
+    }
+    loadProjects();
+  </script>
+</body>
+</html>

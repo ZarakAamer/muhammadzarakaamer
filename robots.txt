@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zarakaamer.com/sitemap.xml
+Sitemap: https://muhammadzarakaamer.com/sitemap.xml

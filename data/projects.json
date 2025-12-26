@@ -1,28 +1,20 @@
 {
   "projects": [
     {
-      "title": "Example: High-Performance Web App",
-      "role": "Full-stack development",
-      "summary": "A fast, reliable web app focused on maintainability, observability, and clean UI.",
-      "highlights": [
-        "Improved load time and UX with performance-first patterns",
-        "Clean architecture and reusable components",
-        "Deployment-friendly structure"
-      ],
-      "tags": ["Web", "Performance", "Reliability"],
-      "link": ""
+      "name": "Personal Website",
+      "description": "SEO-first, fast personal site built with semantic HTML and Tailwind via CDN.",
+      "status": "Live",
+      "tags": ["HTML", "Tailwind", "SEO"],
+      "liveUrl": "https://muhammadzarakaamer.com/",
+      "codeUrl": "https://github.com/ZarakAamer/muhammadzarakaamer"
     },
     {
-      "title": "Example: Automation & Internal Tools",
-      "role": "Automation + tooling",
-      "summary": "Tools that reduce repetitive work and minimize mistakes through disciplined workflows.",
-      "highlights": [
-        "Automated reports and recurring tasks",
-        "Clear logging and predictable behavior",
-        "Easy to extend without breaking existing flows"
-      ],
-      "tags": ["Automation", "Systems", "Tools"],
-      "link": ""
+      "name": "Project Template",
+      "description": "A placeholder entry you can replace with your real projects.",
+      "status": "WIP",
+      "tags": ["TypeScript", "Node.js"],
+      "liveUrl": "",
+      "codeUrl": ""
     }
   ]
 }
