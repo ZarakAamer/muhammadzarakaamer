@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Zarak Aamer — Software Developer & Trader</title>
+  <meta name="description" content="Zarak Aamer in Riyadh, Saudi Arabia. I build reliable software and trade with disciplined systems. High-performance engineering, clear communication, measurable results." />
+  <link rel="canonical" href="https://zarakaamer.com/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zarak Aamer — Software Developer & Trader" />
+  <meta property="og:description" content="I build reliable software and trade with disciplined systems. Based in Riyadh, Saudi Arabia." />
+  <meta property="og:url" content="https://zarakaamer.com/" />
+  <!-- Optional: add /assets/og.jpg later -->
+  <!-- <meta property="og:image" content="https://zarakaamer.com/assets/og.jpg" /> -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zarak Aamer — Software Developer & Trader" />
+  <meta name="twitter:description" content="I build reliable software and trade with disciplined systems. Based in Riyadh, Saudi Arabia." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (CDN)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: {
+              50: "#eef5ff",
+              100: "#dceaff",
+              200: "#b9d5ff",
+              300: "#8fb8ff",
+              400: "#5f90ff",
+              500: "#3b6bff",
+              600: "#2648db",
+              700: "#1e39b1",
+              800: "#182f8f",
+              900: "#0b1430"
+            }
+          },
+          boxShadow: {
+            glow: "0 0 0 1px rgba(59,107,255,.20), 0 10px 40px rgba(11,20,48,.45)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle shiny-matte background without images */
+    .bg-matte {
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(59,107,255,.18), transparent 60%),
+        radial-gradient(1000px 500px at 90% 30%, rgba(143,184,255,.12), transparent 55%),
+        radial-gradient(900px 500px at 50% 100%, rgba(59,107,255,.10), transparent 55%);
+    }
+    .glass {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    /* Reduce motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .animate-none-important { animation: none !important; transition: none !important; }
+    }
+  </style>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zarak Aamer",
+    "jobTitle": ["Software Developer", "Trader"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Riyadh",
+      "addressCountry": "SA"
+    },
+    "url": "https://zarakaamer.com/",
+    "email": "mailto:contact@zarakaamer.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/zarakaamer/",
+      "https://www.facebook.com/zarakaamer"
+    ]
+  }
+  </script>
+
+  <script>
+    // Theme: dark/light with localStorage
+    (function initTheme() {
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-midnight-200 selection:text-slate-900 dark:bg-[#070A14] dark:text-slate-100">
+<script>
+  // Apply theme classes (Tailwind dark mode uses class, so we simulate it)
+  (function applyDarkClass(){
+    const theme = document.documentElement.dataset.theme;
+    if (theme === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  })();
+</script>
+
+<a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 dark:focus:bg-slate-900 dark:focus:text-white"
+   href="#main">Skip to content</a>
+
+<header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 glass dark:border-white/10 dark:bg-[#070A14]/65">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="/" class="group inline-flex items-center gap-2 font-semibold tracking-tight">
+      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-midnight-600 text-white shadow-glow">ZA</span>
+      <span class="text-slate-900 dark:text-white">Zarak Aamer</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm md:flex">
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/about.html">About</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/projects.html">Projects</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/contact.html">Contact</a>
+      <a class="rounded-xl border border-slate-200 px-3 py-2 text-slate-900 hover:bg-slate-50 dark:border-white/10 dark:text-white dark:hover:bg-white/5"
+         href="mailto:contact@zarakaamer.com">Email</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button id="themeBtn"
+        class="rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 hover:bg-slate-50 dark:border-white/10 dark:text-white dark:hover:bg-white/5"
+        type="button" aria-label="Toggle theme">
+        Theme
+      </button>
+
+      <button id="menuBtn"
+        class="rounded-xl border border-slate-200 px-3 py-2 text-sm text-slate-900 hover:bg-slate-50 dark:border-white/10 dark:text-white dark:hover:bg-white/5 md:hidden"
+        type="button" aria-expanded="false" aria-controls="mobileNav">
+        Menu
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileNav" class="hidden border-t border-slate-200/70 bg-white/70 px-4 py-3 glass dark:border-white/10 dark:bg-[#070A14]/65 md:hidden">
+    <div class="mx-auto flex max-w-6xl flex-col gap-3 text-sm">
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/about.html">About</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/projects.html">Projects</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/contact.html">Contact</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="mailto:contact@zarakaamer.com">contact@zarakaamer.com</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/zarakaamer/">LinkedIn</a>
+      <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" target="_blank" rel="noopener" href="https://www.facebook.com/zarakaamer">Facebook</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="bg-matte">
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 pb-10 pt-14">
+    <div class="grid gap-8 md:grid-cols-12 md:items-center">
+      <div class="md:col-span-7">
+        <p class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs text-slate-700 glass dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+          <span class="inline-block h-2 w-2 rounded-full bg-midnight-500"></span>
+          Riyadh, Saudi Arabia • Available for select work
+        </p>
+
+        <h1 class="mt-5 text-4xl font-semibold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+          I build reliable software and trade with disciplined systems.
+        </h1>
+
+        <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
+          I help teams and founders ship clean, performance-minded products—then apply the same discipline to markets:
+          clarity, risk management, execution, and continuous improvement.
+        </p>
+
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <a href="/contact.html"
+             class="inline-flex items-center justify-center rounded-2xl bg-midnight-600 px-5 py-3 text-sm font-medium text-white shadow-glow hover:bg-midnight-500 focus:outline-none focus:ring-2 focus:ring-midnight-300 dark:focus:ring-midnight-700">
+            Work with me
+          </a>
+          <a href="/projects.html"
+             class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white/70 px-5 py-3 text-sm font-medium text-slate-900 glass hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
+            View projects
+          </a>
+        </div>
+
+        <dl class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div class="rounded-2xl border border-slate-200 bg-white/70 p-4 glass dark:border-white/10 dark:bg-white/5">
+            <dt class="text-xs text-slate-600 dark:text-slate-300">Focus</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-950 dark:text-white">Reliability</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white/70 p-4 glass dark:border-white/10 dark:bg-white/5">
+            <dt class="text-xs text-slate-600 dark:text-slate-300">Style</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-950 dark:text-white">Clean Systems</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white/70 p-4 glass dark:border-white/10 dark:bg-white/5">
+            <dt class="text-xs text-slate-600 dark:text-slate-300">Based in</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-950 dark:text-white">Riyadh</dd>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white/70 p-4 glass dark:border-white/10 dark:bg-white/5">
+            <dt class="text-xs text-slate-600 dark:text-slate-300">Contact</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-950 dark:text-white">Email</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Card -->
+      <div class="md:col-span-5">
+        <div class="rounded-3xl border border-slate-200 bg-white/70 p-6 glass shadow-glow dark:border-white/10 dark:bg-white/5">
+          <h2 class="text-lg font-semibold text-slate-950 dark:text-white">What I do</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+            Engineering that holds up under pressure—performance, clarity, security-minded basics, and maintainability.
+          </p>
+
+          <ul class="mt-5 space-y-3 text-sm">
+            <li class="flex gap-3">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-midnight-500"></span>
+              <span class="text-slate-800 dark:text-slate-200"><strong>Web apps</strong> with clean architecture and measurable speed.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-midnight-400"></span>
+              <span class="text-slate-800 dark:text-slate-200"><strong>Automation</strong> and tools that reduce busywork and errors.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-midnight-300"></span>
+              <span class="text-slate-800 dark:text-slate-200"><strong>Trading systems thinking</strong>: discipline, risk controls, iteration.</span>
+            </li>
+          </ul>
+
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <a class="rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 text-center text-sm font-medium text-slate-900 glass hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+               target="_blank" rel="noopener" href="https://www.linkedin.com/in/zarakaamer/">
+              LinkedIn
+            </a>
+            <a class="rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 text-center text-sm font-medium text-slate-900 glass hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+               target="_blank" rel="noopener" href="https://www.facebook.com/zarakaamer">
+              Facebook
+            </a>
+          </div>
+
+          <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+            TikTok: <span class="font-medium text-slate-700 dark:text-slate-200">@zarakaamer</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="mx-auto max-w-6xl px-4 pb-14">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">Featured projects</h2>
+        <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Loaded from a simple JSON file you can edit anytime.</p>
+      </div>
+      <a href="/projects.html" class="text-sm font-medium text-midnight-600 hover:text-midnight-500 dark:text-midnight-300 dark:hover:text-midnight-200">
+        View all →
+      </a>
+    </div>
+
+    <div id="projectGrid" class="mt-6 grid gap-4 md:grid-cols-2"></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-6xl px-4 pb-20">
+    <div class="rounded-3xl border border-slate-200 bg-white/70 p-8 glass shadow-glow dark:border-white/10 dark:bg-white/5 md:p-10">
+      <div class="grid gap-6 md:grid-cols-12 md:items-center">
+        <div class="md:col-span-8">
+          <h2 class="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">Let’s build something dependable.</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+            If you value reliability, speed, and disciplined execution, I’m a strong fit.
+          </p>
+        </div>
+        <div class="md:col-span-4 md:text-right">
+          <a href="/contact.html"
+             class="inline-flex items-center justify-center rounded-2xl bg-midnight-600 px-5 py-3 text-sm font-medium text-white shadow-glow hover:bg-midnight-500">
+            Contact me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-slate-200 bg-white dark:border-white/10 dark:bg-[#070A14]">
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+      <div>
+        <p class="font-semibold text-slate-950 dark:text-white">Zarak Aamer</p>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Riyadh, Saudi Arabia • Software Developer & Trader</p>
+      </div>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/about.html">About</a>
+        <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/projects.html">Projects</a>
+        <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="/contact.html">Contact</a>
+        <a class="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white" href="mailto:contact@zarakaamer.com">Email</a>
+      </div>
+    </div>
+    <p class="mt-8 text-xs text-slate-500 dark:text-slate-500">© <span id="year"></span> Zarak Aamer. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Theme toggle
+  document.getElementById("themeBtn").addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    if (next === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  });
+
+  // Mobile menu
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileNav = document.getElementById("mobileNav");
+  menuBtn.addEventListener("click", () => {
+    const isOpen = !mobileNav.classList.contains("hidden");
+    mobileNav.classList.toggle("hidden");
+    menuBtn.setAttribute("aria-expanded", String(!isOpen));
+  });
+
+  // Load featured projects from JSON
+  async function loadProjects() {
+    const grid = document.getElementById("projectGrid");
+    try {
+      const res = await fetch("/data/projects.json", { cache: "no-store" });
+      const data = await res.json();
+      const items = (data.projects || []).slice(0, 4);
+
+      if (!items.length) {
+        grid.innerHTML = `<div class="rounded-2xl border border-slate-200 bg-white/70 p-5 glass dark:border-white/10 dark:bg-white/5">
+          <p class="text-sm text-slate-700 dark:text-slate-300">Add projects by editing <code class="font-mono text-xs">/data/projects.json</code>.</p>
+        </div>`;
+        return;
+      }
+
+      grid.innerHTML = items.map(p => `
+        <article class="rounded-2xl border border-slate-200 bg-white/70 p-5 glass hover:shadow-glow transition-shadow dark:border-white/10 dark:bg-white/5">
+          <h3 class="text-base font-semibold text-slate-950 dark:text-white">${escapeHtml(p.title || "Project")}</h3>
+          <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">${escapeHtml(p.summary || "")}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            ${(p.tags || []).slice(0, 4).map(t => `
+              <span class="rounded-full border border-slate-200 bg-white/60 px-2 py-1 text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">${escapeHtml(t)}</span>
+            `).join("")}
+          </div>
+        </article>
+      `).join("");
+    } catch (e) {
+      grid.innerHTML = `<div class="rounded-2xl border border-slate-200 bg-white/70 p-5 glass dark:border-white/10 dark:bg-white/5">
+        <p class="text-sm text-slate-700 dark:text-slate-300">
+          Could not load projects. Make sure <code class="font-mono text-xs">/data/projects.json</code> exists.
+        </p>
+      </div>`;
+    }
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, s => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[s]));
+  }
+
+  loadProjects();
+</script>
+</body>
+</html>
