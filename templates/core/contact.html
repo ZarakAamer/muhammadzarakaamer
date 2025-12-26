@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="grid md:grid-cols-2 gap-8">
+  <div>
+    <h1 class="text-2xl font-bold">Contact</h1>
+    <p class="mt-2 text-slate-300">Send a message. If email is configured, submissions will be forwarded; otherwise they're stored in the database.</p>
+
+    <form method="post" class="mt-6 space-y-4">
+      {% csrf_token %}
+      <div>
+        <label class="text-sm text-slate-300">Name</label>
+        {{ form.name }}
+        {% if form.name.errors %}<p class="text-sm text-red-300">{{ form.name.errors }}</p>{% endif %}
+      </div>
+      <div>
+        <label class="text-sm text-slate-300">Email</label>
+        {{ form.email }}
+        {% if form.email.errors %}<p class="text-sm text-red-300">{{ form.email.errors }}</p>{% endif %}
+      </div>
+      <div>
+        <label class="text-sm text-slate-300">Message</label>
+        {{ form.message }}
+        {% if form.message.errors %}<p class="text-sm text-red-300">{{ form.message.errors }}</p>{% endif %}
+      </div>
+      <button class="rounded-lg bg-white text-slate-900 px-4 py-2 text-sm font-semibold" type="submit">Send</button>
+    </form>
+  </div>
+
+  <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h2 class="text-lg font-semibold">Alternative</h2>
+    <p class="mt-2 text-slate-300 text-sm">You can also add your email, LinkedIn, or other contact details here.</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Personal Website{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Personal website{% endblock %}">
+  <link rel="icon" href="{% static 'img/favicon.svg' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <header class="border-b border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
+      <a href="/" class="font-semibold tracking-tight">{{ site_name|default:'My Site' }}</a>
+      <nav class="flex gap-4 text-sm text-slate-200">
+        <a class="hover:text-white" href="/">Home</a>
+        <a class="hover:text-white" href="{% url 'core:about' %}">About</a>
+        <a class="hover:text-white" href="{% url 'projects:list' %}">Projects</a>
+        <a class="hover:text-white" href="{% url 'blog:list' %}">Blog</a>
+        <a class="hover:text-white" href="{% url 'core:contact' %}">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    {% if messages %}
+      <div class="space-y-2 mb-6">
+        {% for message in messages %}
+          <div class="rounded-lg border border-slate-800 bg-slate-900 px-4 py-3 text-sm">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="border-t border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 py-8 text-sm text-slate-400">
+      <p>&copy; {% now 'Y' %} {{ site_name|default:'My Site' }}. Built with Django.</p>
+    </div>
+  </footer>
+</body>
+</html>

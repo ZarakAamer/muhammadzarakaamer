@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<a class="text-sm text-slate-300 hover:text-white" href="{% url 'blog:list' %}">&larr; Back to blog</a>
+
+<article class="mt-4 rounded-2xl border border-slate-800 bg-slate-900 p-8">
+  <header>
+    <h1 class="text-3xl font-bold">{{ post.title }}</h1>
+    <p class="mt-2 text-sm text-slate-400">{{ post.published_at|date:'F j, Y' }}</p>
+    {% if post.excerpt %}<p class="mt-4 text-slate-300">{{ post.excerpt }}</p>{% endif %}
+  </header>
+
+  <div class="mt-6 prose prose-invert max-w-none">
+    {{ post.body|linebreaks }}
+  </div>
+</article>
+{% endblock %}

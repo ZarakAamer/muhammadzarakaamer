@@ -1,0 +1,10 @@
+/* Minimal additions on top of Tailwind (CDN) */
+input, textarea {
+  width: 100%;
+  background: rgb(15 23 42 / 0.5);
+  border: 1px solid rgb(51 65 85 / 1);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  color: white;
+}
+textarea { min-height: 140px; }
